@@ -63,7 +63,7 @@ const Single = () => {
               </div>
 
               {/* Other Details */}
-              <div className="ml-20 grid grid-cols-2 mt-5">
+              <div className="ml-20 mt-5">
                 <div className="p-3">
                   <p className="m-2">
                     <span className="text-lg text-bold">Owner:</span>{" "}
@@ -78,12 +78,12 @@ const Single = () => {
                     </span>
                   </p>
                 </div>
-                <div className="p-3">
-                  <div className="mt-10">
+                <div className="ml-4">
+                  <div className="">
                     {currentUser.username === post.username && (
                       <div>
                         <Link to={`/write?edit=2`} state={post}>
-                          <span className=" text-3xl text-orange-500 mt-16">
+                          <span className=" text-3xl text-orange-500 mb-5">
                             <BsPencil />
                           </span>
                         </Link>

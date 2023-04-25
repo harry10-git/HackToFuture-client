@@ -1,62 +1,19 @@
 import React from 'react'
-import { Typography } from "@material-tailwind/react";
-import Logo from "../img/logo.png";
-
+import {FaInstagram, FaGithub, FaLinkedin} from "react-icons/fa";
+import {AiOutlineHeart} from "react-icons/ai";
 const Footer = () => {
   return (
-    <footer className="w-full bg-violet-200 p-8">
-      <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
-        <img src={Logo} alt="logo-ct" className="w-10" />
-        <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
-          <li>
-            <Typography
-              as="a"
-              href="#"
-              color="blue-gray"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-            >
-              About Us
-            </Typography>
-          </li>
-          <li>
-            <Typography
-              as="a"
-              href="#"
-              color="blue-gray"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-            >
-              License
-            </Typography>
-          </li>
-          <li>
-            <Typography
-              as="a"
-              href="#"
-              color="blue-gray"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-            >
-              Contribute
-            </Typography>
-          </li>
-          <li>
-            <Typography
-              as="a"
-              href="#"
-              color="blue-gray"
-              className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
-            >
-              Contact Us
-            </Typography>
-          </li>
-        </ul>
-      </div>
-      <hr className="my-8 border-blue-gray-50" />
-      <Typography color="blue-gray" className="text-center font-normal">
-        &copy; 2023 Material Tailwind
-      </Typography>
-    </footer>
-    
+    <div>
+    <div className='max-w-[1640px] justify-center items-center p-2 px-5 flex bg-orange-600 mt-8 mb-0'>
+    <button className='text-white border-orange-600 hover:text-gray-600 hover:scale-105 duration-300'><FaGithub size={25} className='mr-4'/> </button>
+    <button className='text-white border-orange-600 hover:text-gray-600 hover:scale-105 duration-300'><FaInstagram size={25} className='mr-4'/> </button>
+    <button className='text-white border-orange-600 hover:text-gray-600 hover:scale-105 duration-300'><FaLinkedin size={25} className='mr-4'/>   </button>
+    </div>
+    <p className='py-2 mb-4 text-white text-bold max-w-[1640px] flex justify-center items-center bg-orange-600'>Made by Harry & Triya</p>
+    </div>
   )
 }
 
 export default Footer
+
+// <span><AiOutlineHeart size={25} className='mr-4'/> </span>

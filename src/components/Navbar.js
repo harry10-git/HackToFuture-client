@@ -89,7 +89,7 @@ const Navbar = () => {
           className="absolute right-4 top-4 cursor-pointer"
         />
 
-        <h2 className="text-2xl p-4 ">
+        <h2 className="text-2xl p-4">
           Manipal <span className="font-bold">Mercantile</span>
         </h2>
 

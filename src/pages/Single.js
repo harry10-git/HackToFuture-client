@@ -99,7 +99,7 @@ const Single = () => {
       </div>
 
       <div className="flex-1 flex overflow-hidden">
-        <div className="flex-1 overflow-y-scroll  bg-orange-400">
+        <div className="flex-1 overflow-y-scroll  ">
           <Menu cat={post.cat} />
         </div>
       </div>

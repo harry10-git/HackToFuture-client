@@ -107,7 +107,7 @@ const Navbar = () => {
             <li className="text-xl py-4 flex">
               <MdFavorite size={25} className="mr-4" /> {currentUser ? (
             <span className="px-4" onClick={logout}>
-              Logout
+            <Link to="/login">Logout</Link>
             </span>
           ) : (
             <Link to="/login">Login</Link>

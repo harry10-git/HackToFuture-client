@@ -68,7 +68,7 @@ const Write = () => {
         <input
           type="file"
           name=""
-          id=""
+          id="id"
           onChange={(e) => setFile(e.target.files[0])}
         />
        

@@ -80,27 +80,28 @@ const Home = () => {
     
     };
     </div> */}
-
+      <div className='ml-10 mr-10 grid grid-cols-2 lg:grid-cols-4 gap-8 pt-10'> 
       {posts.map(post=>(
-        <div className='post place-content-center justify-center items-center p-5 m-8 grid grid-cols-3 ml-[300px]' key={post.id}>
+        <div className='border shadow-2xl rounded-lg hover:scale-105 duration-300' key={post.id}>
+          {/* <div className=' justify-center items-center py-4 col-span-1'> */}
+          <img className='w-full h-[250px] object-cover rounded-t-lg' src={`../upload/${post.img}`} alt="" />
+          {/* </div> */}
           
+          <div className='px-2 py-2'>
           
-
-          <div className=' justify-center items-center py-4 col-span-1'>
-          <img className='object-cover h-48 w-96' src={`../upload/${post.img}`} alt="" />
+          <div>
+              <h1 className='font-bold text-2xl'>{post.title}</h1>
+              <p className='py-2'>{getText(post.desc).substring(0,100)+'...'}</p>
           </div>
 
-          <div className='content max-w-[540px] text-center col-span-2'>
-            <Link to={`/post/${post.id}`}>
-              <h1 className='mb-5'>{post.title}</h1>
-              <p>{getText(post.desc)}</p>
-             
-            </Link>
+          <p className='item-center text-center'>
+                    <span ><Link to={`/post/${post.id}`}><button className= 'px-20 mt-5 bg-orange-600 border-orange-600 text-white p-1 hover:bg-gray-200 hover:text-orange-600 rounded-full'>Buy Now</button></Link></span>
+          </p>
           </div>
 
-          <button className='border-2 border-black hover:bg-blue-300'>Read more</button>
         </div>
       ))}
+      </div>
 
     </div>
 

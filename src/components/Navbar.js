@@ -32,7 +32,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="container flex py-[10p x] px-0 justify-between">
+      <div className="container flex py-[10px] justify-between">
         <div className="logo">
           <Link to="/">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">

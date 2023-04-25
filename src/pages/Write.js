@@ -60,25 +60,18 @@ const Write = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <div className="">
-          <ReactQuill theme="snow" value={value} onChange={setValue} />
+          <ReactQuill className="h-[400px]" theme="snow" value={value} onChange={setValue} />
         </div>
 
+
+        <div className="mt-16">
         <input
           type="file"
           name=""
           id=""
           onChange={(e) => setFile(e.target.files[0])}
         />
-        {/* buttons */}
-        <button className="bg-slate-300 p-2 rounded-lg m-2">
-          save as draft
-        </button>
-        <button
-          className="bg-slate-300 p-2 rounded-lg m-2"
-          onClick={handleClick}
-        >
-          Publish
-        </button>
+       
 
         <input
           type="radio"
@@ -88,7 +81,7 @@ const Write = () => {
           id="art"
           onChange={(e) => setCat(e.target.value)}
         />
-        <label htmlFor="art">Art</label>
+        <label className="mr-2" htmlFor="art">Art</label>
 
         <input
           type="radio"
@@ -98,7 +91,7 @@ const Write = () => {
           id="science"
           onChange={(e) => setCat(e.target.value)}
         />
-        <label htmlFor="science">science</label>
+        <label className="mr-2" htmlFor="science">science</label>
 
         <input
           type="radio"
@@ -118,7 +111,7 @@ const Write = () => {
           id="cinema"
           onChange={(e) => setCat(e.target.value)}
         />
-        <label htmlFor="cinema">Cinema</label>
+        <label className="mr-2" htmlFor="cinema">Cinema</label>
 
         <input
           type="radio"
@@ -128,7 +121,7 @@ const Write = () => {
           id="design"
           onChange={(e) => setCat(e.target.value)}
         />
-        <label htmlFor="design">Design</label>
+        <label className="mr-2" htmlFor="design">Design</label>
 
         <input
           type="radio"
@@ -138,7 +131,21 @@ const Write = () => {
           id="design"
           onChange={(e) => setCat(e.target.value)}
         />
-        <label htmlFor="design">Food</label>
+        <label className="mr-2" htmlFor="design">Food</label>
+
+
+         {/* buttons */}
+         <button className="bg-slate-300 p-2 rounded-lg m-2 hover:bg-orange-500 hover:text-white">
+          save as draft
+        </button>
+        <button
+          className="bg-slate-300 p-2 rounded-lg m-2 hover:bg-orange-500 hover:text-white"
+          onClick={handleClick}
+        >
+          Publish
+        </button>
+
+        </div>
       </div>
     </div>
   );

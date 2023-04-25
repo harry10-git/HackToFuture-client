@@ -3,22 +3,25 @@ import React, { useContext, useEffect, useState } from "react";
 import { BsPenFill, BsXOctagonFill } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import moment from 'moment';
-import {AuthContext} from "../context/authContext"
+import moment from "moment";
+import { AuthContext } from "../context/authContext";
 import Menu from "../components/Menu";
 import { BsPencil } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
 
-
 const Single = () => {
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent;
+  };
 
-  const [post,setPost] = useState({});
+  const [post, setPost] = useState({});
 
-  const location = useLocation()
-  
+  const location = useLocation();
+
   const navigate = useNavigate();
 
-  const postId = location.pathname.split("/")[2]; 
+  const postId = location.pathname.split("/")[2];
 
   const { currentUser } = useContext(AuthContext);
 
@@ -35,79 +38,79 @@ const Single = () => {
   }, [postId]);
 
   // Delete function
-  const handleDelete = async ()=>{
+  const handleDelete = async () => {
     try {
       const res = await axios.delete(`/posts/${postId}`);
       navigate("/");
-
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   return (
     <div>
-
-    <div className="grid grid-cols-3 h-screen ">
-      <div className="bg-white justify-center col-span-2 ">
-        <div className="grid grid-cols-3">
-          <div>
-            {/* Image */}
-            <div class="max-w-[400px] bg-orange-400 border border-orange-600 rounded-3xl ml-20 mt-20 p-2">
-              <a href="#">
+      <div className="grid grid-cols-3 h-screen ">
+        <div className="justify-center col-span-2 ">
+          <div className="grid grid-cols-3">
+            <div>
+              {/* Image */}
+              <div class="max-w-[400px] bg-orange-400 border border-orange-600 rounded-3xl ml-20 mt-20 p-2">
                 <img
                   class="rounded-3xl hover:shadow-5xl duration-300"
                   src={`../upload/${post?.img}`}
                   alt=""
                 />
-              </a>
+              </div>
+
+              {/* Other Details */}
+              <div className="ml-20 grid grid-cols-2 mt-5">
+                <div className="p-3">
+                  <p className="m-2">
+                    <span className="text-lg text-bold">Owner:</span>{" "}
+                    <span className="text-bold text-orange-600">
+                      {post.username}
+                    </span>
+                  </p>
+                  <p className="m-2">
+                    <span className="text-lg text-bold">Posted on:</span>{" "}
+                    <span className="text-bold text-orange-600">
+                      {moment(post.date).fromNow()}
+                    </span>
+                  </p>
+                </div>
+                <div className="p-3">
+                  <div className="mt-10">
+                    {currentUser.username === post.username && (
+                      <div>
+                        <Link to={`/write?edit=2`} state={post}>
+                          <span className=" text-3xl text-orange-500 mt-16">
+                            <BsPencil />
+                          </span>
+                        </Link>
+                        <span className=" text-3xl" onClick={handleDelete}>
+                          <MdDelete />
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Other Details */}
-            <div className="ml-20 grid grid-cols-2 mt-5">
-              <div className="p-3">
-                <p className="m-2">
-                  <span className="text-lg text-bold">Owner:</span>{" "}
-                  <span className="text-bold text-orange-600">{post.username}</span>
-                </p>
-                <p className="m-2">
-                  <span className="text-lg text-bold">Posted on:</span>{" "}
-                  <span className="text-bold text-orange-600">
-                    {moment(post.date).fromNow()}
-                  </span>
-                </p>
-              </div>
-              <div className="p-3">
-                <p className="m-2">
-                  <BsPencil className=" text-orange-600" size={20} />
-                </p>
-                <p className="m-2">
-                  <MdDelete className=" text-orange-600" size={20} />
-                </p>
-              </div>
+            {/* Description */}
+            <div className="col-span-2 m-auto text-xl">
+              <p className="p-10 m-auto">{getText(post.desc)}</p>
             </div>
-          </div>
-
-
-          {/* Description */}
-          <div className="col-span-2 m-auto text-xl">
-            <p className="p-10 m-auto">
-              {post.desc}
-            </p>
           </div>
         </div>
-      </div>
-
-      <div className="flex-1 flex overflow-hidden">
-        <div className="flex-1 overflow-y-scroll  ">
-          <Menu cat={post.cat} />
+        {/* Side */}
+        <div className="flex-1 flex overflow-hidden">
+          <div className="flex-1 overflow-y-scroll bg-gray-100 ">
+            <Menu cat={post.cat} />
+          </div>
         </div>
       </div>
     </div>
-
-
-  </div>
-
 
     // <div>
     // <div className="flex justify-center items-center pt-9">
@@ -128,7 +131,6 @@ const Single = () => {
     //       <p>{post.username}</p>
     //       <p>posted {moment(post.date).fromNow()} </p>
 
-
     //    {currentUser.username ===post.username && (
     //     <div><Link to={`/write?edit=2`} state={post} >
     //         <span className=" text-2xl">
@@ -148,15 +150,13 @@ const Single = () => {
     //     </div>
     //   </div>
 
-      
     // </div>
 
-
-    //    {/* suggestions  */} 
+    //    {/* suggestions  */}
     //   <div className="">
-            
+
     //         <Menu cat={post.cat}/>
-      
+
     //     </div>
     // </div>
   );

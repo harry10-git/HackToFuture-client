@@ -64,7 +64,7 @@ const Home = () => {
     <div className='posts'>
 
    {/* Dispaly Objects */}
-   <div className='ml-10 mr-10 grid grid-cols-2 lg:grid-cols-4 gap-8 pt-10'>
+   {/* <div className='ml-10 mr-10 grid grid-cols-2 lg:grid-cols-4 gap-8 pt-10'>
     {posts.map((post)=> (
         <div className='border shadow-2xl rounded-lg hover:scale-105 duration-300'>
             <img className='w-full h-[250px] object-cover rounded-t-lg' src={`../upload/${post.img}`} alt='' />
@@ -76,10 +76,12 @@ const Home = () => {
                 </p>
             </div>
         </div>
-    ))};
-    </div>
+    ))
+    
+    };
+    </div> */}
 
-      {/* {posts.map(post=>(
+      {posts.map(post=>(
         <div className='post place-content-center justify-center items-center p-5 m-8 grid grid-cols-3 ml-[300px]' key={post.id}>
           
           
@@ -91,14 +93,14 @@ const Home = () => {
           <div className='content max-w-[540px] text-center col-span-2'>
             <Link to={`/post/${post.id}`}>
               <h1 className='mb-5'>{post.title}</h1>
-              <p>{getText(post.cat)}</p>
+              <p>{getText(post.desc)}</p>
              
             </Link>
           </div>
 
           <button className='border-2 border-black hover:bg-blue-300'>Read more</button>
         </div>
-      ))} */}
+      ))}
 
     </div>
 

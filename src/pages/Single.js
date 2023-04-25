@@ -54,7 +54,7 @@ const Single = () => {
           <div className="grid grid-cols-3">
             <div>
               {/* Image */}
-              <div class="max-w-[400px] bg-orange-400 border border-orange-600 rounded-3xl ml-20 mt-20 p-2">
+              <div class="max-w-[450px] bg-gray-400  border border-gray-300 rounded-3xl ml-20 mt-20 p-2">
                 <img
                   class="rounded-3xl hover:shadow-5xl duration-300"
                   src={`../upload/${post?.img}`}
@@ -105,7 +105,7 @@ const Single = () => {
 
             {/* Description */}
             <div className="col-span-2 m-auto text-xl">
-              <p className="p-10 m-auto">{getText(post.desc)}</p>
+              <p className=" p-10 m-auto pt-20">{getText(post.desc)}</p>
             </div>
           </div>
         </div>

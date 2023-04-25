@@ -90,7 +90,7 @@ const Navbar = () => {
         />
 
         <h2 className="text-2xl p-4">
-          Manipal <span className="font-bold">Mercantile</span>
+          Manipal <span className="font-bold text-orange-500 ml-1">Mercantile</span>
         </h2>
 
         <nav>
@@ -101,11 +101,11 @@ const Navbar = () => {
             </li>
 
             <li className="text-xl py-4 flex">
-              <TbTruckDelivery size={25} className="mr-4" /> <span className="px-4">{currentUser?.username}</span>{" "}
+              <TbTruckDelivery size={25} className="mr-4 text-orange-500" /> <span className="px-4">{currentUser?.username}</span>{" "}
             </li>
 
             <li className="text-xl py-4 flex">
-              <MdFavorite size={25} className="mr-4" /> {currentUser ? (
+              <MdFavorite size={25} className="mr-4 text-orange-500" /> {currentUser ? (
             <span className="px-4" onClick={logout}>
             <Link to="/login">Logout</Link>
             </span>
@@ -115,25 +115,25 @@ const Navbar = () => {
             </li>
 
             <li className="text-xl py-4 flex">
-              <FaWallet size={25} className="mr-4" /> <span>
-            <Link to="/write">Write</Link>
+              <FaWallet size={25} className="mr-4 text-orange-500" /> <span>
+            <Link to="/write">Sell</Link>
           </span>{" "}
             </li>
 
             <li className="text-xl py-4 flex">
-              <MdHelp size={25} className="mr-4" /> Help{" "}
+              <MdHelp size={25} className="mr-4 text-orange-500" /> Help{" "}
             </li>
 
             <li className="text-xl py-4 flex">
-              <AiFillTag size={25} className="mr-4" /> Promotions{" "}
+              <AiFillTag size={25} className="mr-4 text-orange-500" /> Promotions{" "}
             </li>
 
             <li className="text-xl py-4 flex">
-              <BsFillSaveFill size={25} className="mr-4" /> Best Ones{" "}
+              <BsFillSaveFill size={25} className="mr-4 text-orange-500" /> Best Ones{" "}
             </li>
 
             <li className="text-xl py-4 flex">
-              <FaUserFriends size={25} className="mr-4" /> Invite Friends{" "}
+              <FaUserFriends size={25} className="mr-4 text-orange-500" /> Invite Friends{" "}
             </li>
           </ul>
         </nav>

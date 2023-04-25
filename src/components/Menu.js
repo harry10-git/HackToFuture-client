@@ -24,7 +24,7 @@ const Menu = ({cat}) => {
 
   return (
     <div className="menu items-center justify-center flex flex-col">
-      <h1>Other posts you may like</h1>
+      <h3 className="py-2 text-xl font-sans text-orange-700 font-medium">Other posts you may like</h3>
       {posts.map((post) => (
         <div className='border shadow-2xl rounded-lg hover:scale-105 duration-300 object-cover w-[350px] h-auto p-10' key={post.id}>
           {/* <div className=' justify-center items-center py-4 col-span-1'> */}

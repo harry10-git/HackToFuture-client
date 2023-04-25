@@ -6,6 +6,8 @@ import axios from "axios";
 import moment from 'moment';
 import {AuthContext} from "../context/authContext"
 import Menu from "../components/Menu";
+import { BsPencil } from "react-icons/bs";
+import { MdDelete } from "react-icons/md";
 
 
 const Single = () => {
@@ -45,55 +47,118 @@ const Single = () => {
 
   return (
     <div>
-    <div className="flex justify-center items-center pt-9">
-      <div className="single grid grid-cols-3">
-        <div className="content col-span-2">
-          <img
-            className="h-[300px]"
-            src={`../upload/${post?.img}`}
-            alt="no img"
-          />
 
-          {post.userImg && <img
-            className="h-[100px] rounded-full mt-5"
-            src={post.userImg}
-            alt=""
-          />}
+    <div className="grid grid-cols-3 h-screen ">
+      <div className="bg-white justify-center col-span-2 ">
+        <div className="grid grid-cols-3">
+          <div>
+            {/* Image */}
+            <div class="max-w-[400px] bg-orange-400 border border-orange-600 rounded-3xl ml-20 mt-20 p-2">
+              <a href="#">
+                <img
+                  class="rounded-3xl hover:shadow-5xl duration-300"
+                  src={`../upload/${post?.img}`}
+                  alt=""
+                />
+              </a>
+            </div>
 
-          <p>{post.username}</p>
-          <p>posted {moment(post.date).fromNow()} </p>
+            {/* Other Details */}
+            <div className="ml-20 grid grid-cols-2 mt-5">
+              <div className="p-3">
+                <p className="m-2">
+                  <span className="text-lg text-bold">Owner:</span>{" "}
+                  <span className="text-bold text-orange-600">{post.username}</span>
+                </p>
+                <p className="m-2">
+                  <span className="text-lg text-bold">Posted on:</span>{" "}
+                  <span className="text-bold text-orange-600">
+                    {moment(post.date).fromNow()}
+                  </span>
+                </p>
+              </div>
+              <div className="p-3">
+                <p className="m-2">
+                  <BsPencil className=" text-orange-600" size={20} />
+                </p>
+                <p className="m-2">
+                  <MdDelete className=" text-orange-600" size={20} />
+                </p>
+              </div>
+            </div>
+          </div>
 
 
-       {currentUser.username ===post.username && (
-        <div><Link to={`/write?edit=2`} state={post} >
-            <span className=" text-2xl">
-              <BsPenFill />
-            </span>
-          </Link>
-          <span className=" text-2xl" onClick={handleDelete}>
-            <BsXOctagonFill />
-          </span></div>)}
-
-        </div>
-
-        <div className="col-span-1 ml-10 text-green-500">
-          {/* other posts you may like */}
-          <h1 className="font-bold ">{post.title}</h1>
-        <p>{post.desc}</p>
+          {/* Description */}
+          <div className="col-span-2 m-auto text-xl">
+            <p className="p-10 m-auto">
+              {post.desc}
+            </p>
+          </div>
         </div>
       </div>
 
-      
-    </div>
-
-
-       {/* suggestions  */} 
-      <div className="">
-            
-            <Menu cat={post.cat}/>
-      
+      <div className="flex-1 flex overflow-hidden">
+        <div className="flex-1 overflow-y-scroll  bg-orange-400">
+          <Menu cat={post.cat} />
         </div>
+      </div>
     </div>
+
+
+  </div>
+
+
+    // <div>
+    // <div className="flex justify-center items-center pt-9">
+    //   <div className="single grid grid-cols-3">
+    //     <div className="content col-span-2">
+    //       <img
+    //         className="h-[300px]"
+    //         src={`../upload/${post?.img}`}
+    //         alt="no img"
+    //       />
+
+    //       {post.userImg && <img
+    //         className="h-[100px] rounded-full mt-5"
+    //         src={post.userImg}
+    //         alt=""
+    //       />}
+
+    //       <p>{post.username}</p>
+    //       <p>posted {moment(post.date).fromNow()} </p>
+
+
+    //    {currentUser.username ===post.username && (
+    //     <div><Link to={`/write?edit=2`} state={post} >
+    //         <span className=" text-2xl">
+    //           <BsPenFill />
+    //         </span>
+    //       </Link>
+    //       <span className=" text-2xl" onClick={handleDelete}>
+    //         <BsXOctagonFill />
+    //       </span></div>)}
+
+    //     </div>
+
+    //     <div className="col-span-1 ml-10 text-green-500">
+    //       {/* other posts you may like */}
+    //       <h1 className="font-bold ">{post.title}</h1>
+    //     <p>{post.desc}</p>
+    //     </div>
+    //   </div>
+
+      
+    // </div>
+
+
+    //    {/* suggestions  */} 
+    //   <div className="">
+            
+    //         <Menu cat={post.cat}/>
+      
+    //     </div>
+    // </div>
   );
 };
 

@@ -16,11 +16,11 @@ const Hero = () => {
             <TypeAnimation
       sequence={[
         'Deals', // Types 'One'
-        1000, // Waits 1s
+        2000, // Waits 1s
         'Steals', // Deletes 'One' and types 'Two'
-        1000, // Waits 2s
+        2000, // Waits 2s
         'Discounts',
-        1000,
+        2000,
         
         // () => {
         //   console.log('Sequence completed'); // Place optional callbacks anywhere in the array

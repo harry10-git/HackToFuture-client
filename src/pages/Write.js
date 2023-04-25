@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import ReactQuill from "react-quill";
@@ -123,7 +124,7 @@ const Write = () => {
           className="bg-slate-300 p-2 rounded-lg m-2 hover:bg-orange-500 hover:text-white"
           onClick={handleClick}
         >
-          Publish
+          <Link to='/'>Publish</Link>
         </button>
 
         </div>

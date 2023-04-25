@@ -1,21 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
-import harry from "../img/harry.jpeg";
+// import harry from "../img/harry.jpeg";
 import { BsPenFill, BsXOctagonFill } from "react-icons/bs";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import moment from 'moment';
+// import moment from 'moment';
 import {AuthContext} from "../context/authContext"
 
 
 const Single = () => {
 
-  const [post,setPost] = useState([]);
+  const [post,setPost] = useState({});
+
+  // const navigate = useNavigate();
 
   const location = useLocation()
 
-  const postId = location.pathname.split("/")[2];
+  const postId = location.pathname.split("/")[2]; 
 
-  const {currentUser} = useContext(AuthContext)
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,20 +44,20 @@ const Single = () => {
 
           <img
             className="h-[100px] rounded-full mt-5"
-            src={harry}
+            src={post.userImg}
             alt="harry"
           />
 
-          <p>{post.username}</p>
-          {/* <p>posted {moment(post.date).fromNow()}</p> */}
-          {currentUser.username === post.username && <div><Link to={`/write?edit=2`}>
+          <p>{post.title}</p>
+          <p>posted 2 days ago </p>
+       <Link to={`/write?edit=2`}>
             <span className=" text-2xl">
               <BsPenFill />
             </span>
           </Link>
           <span className=" text-2xl">
             <BsXOctagonFill />
-          </span></div>}
+          </span>
         </div>
 
         <div className="col-span-1 ml-10 text-green-500">

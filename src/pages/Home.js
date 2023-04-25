@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from "react-router-dom";
 import axios from 'axios';
+import Hero from '../components/Hero';
 
 const Home = () => {
 
@@ -49,21 +50,32 @@ const Home = () => {
   //   },
   // ];
 
+  const getText = (html) =>{
+    const doc = new DOMParser().parseFromString(html, "text/html")
+    return doc.body.textContent
+  }
+
 
   return (
     <div className=''>
+
+    <Hero />
 
     <div className='posts'>
 
       {posts.map(post=>(
         <div className='post place-content-center justify-center items-center p-5 m-8 grid grid-cols-3 ml-[300px]' key={post.id}>
+          
+          
+
           <div className=' justify-center items-center py-4 col-span-1'>
-          <img className='h-[500px]' src={post.img} alt="" />
+          <img className='object-cover h-48 w-96' src={`../upload/${post.img}`} alt="" />
           </div>
+
           <div className='content max-w-[540px] text-center col-span-2'>
             <Link to={`/post/${post.id}`}>
               <h1 className='mb-5'>{post.title}</h1>
-              <p>{post.cat}</p>
+              <p>{getText(post.cat)}</p>
              
             </Link>
           </div>

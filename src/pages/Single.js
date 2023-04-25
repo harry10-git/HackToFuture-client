@@ -3,17 +3,18 @@ import React, { useContext, useEffect, useState } from "react";
 import { BsPenFill, BsXOctagonFill } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-// import moment from 'moment';
+import moment from 'moment';
 import {AuthContext} from "../context/authContext"
+import Menu from "../components/Menu";
 
 
 const Single = () => {
 
   const [post,setPost] = useState({});
 
-  // const navigate = useNavigate();
-
   const location = useLocation()
+  
+  const navigate = useNavigate();
 
   const postId = location.pathname.split("/")[2]; 
 
@@ -31,6 +32,17 @@ const Single = () => {
     fetchData();
   }, [postId]);
 
+  // Delete function
+  const handleDelete = async ()=>{
+    try {
+      const res = await axios.delete(`/posts/${postId}`);
+      navigate("/");
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <div>
     <div className="flex justify-center items-center pt-9">
@@ -38,43 +50,48 @@ const Single = () => {
         <div className="content col-span-2">
           <img
             className="h-[300px]"
-            src={post?.img}
+            src={`../upload/${post?.img}`}
             alt="no img"
           />
 
-          <img
+          {post.userImg && <img
             className="h-[100px] rounded-full mt-5"
             src={post.userImg}
-            alt="harry"
-          />
+            alt=""
+          />}
 
-          <p>{post.title}</p>
-          <p>posted 2 days ago </p>
-       <Link to={`/write?edit=2`}>
+          <p>{post.username}</p>
+          <p>posted {moment(post.date).fromNow()} </p>
+
+
+       {currentUser.username ===post.username && (
+        <div><Link to={`/write?edit=2`} state={post} >
             <span className=" text-2xl">
               <BsPenFill />
             </span>
           </Link>
-          <span className=" text-2xl">
+          <span className=" text-2xl" onClick={handleDelete}>
             <BsXOctagonFill />
-          </span>
+          </span></div>)}
+
         </div>
 
         <div className="col-span-1 ml-10 text-green-500">
-          other posts you may like
+          {/* other posts you may like */}
+          <h1 className="font-bold ">{post.title}</h1>
+        <p>{post.desc}</p>
         </div>
       </div>
 
       
     </div>
 
-      <div className="grid grid-cols-3">
 
-      <div className="col-span-2 items-center justify-center text-left p-10 flex flex-col">
-      <h1 className="font-bold ">{post.title}</h1>
-        <p>{post.desc}</p>
+       {/* suggestions  */} 
+      <div className="">
+            
+            <Menu cat={post.cat}/>
       
-      </div>
         </div>
     </div>
   );

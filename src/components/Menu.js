@@ -28,14 +28,14 @@ const Menu = ({cat}) => {
       {posts.map((post) => (
         <div className='border shadow-2xl rounded-lg hover:scale-105 duration-300 object-cover w-[350px] h-auto p-10' key={post.id}>
           {/* <div className=' justify-center items-center py-4 col-span-1'> */}
-          <img className='w-full h-[250px] object-cover rounded-t-lg' src={`../upload/${post.img}`} alt="" />
+          <img className='w-full h-[250px] object-contain rounded-t-lg' src={`../upload/${post.img}`} alt="" />
           {/* </div> */}
           
           <div className='px-2 py-2'>
           
           <div>
               <h1 className='font-bold text-2xl'>{post.title}</h1>
-              <p className='py-2'>{getText(post.desc).substring(0,100)+'...'}</p>
+              <p className='py-2'>{getText(post.desc).substring(0,55)+'...'}</p>
           </div>
 
           <p className='item-center text-center'>

@@ -68,7 +68,7 @@ const Navbar = () => {
             </button>
 
             <button className="bg-transparent hover:bg-orange-600 text-orange-600 font-semibold hover:text-white py-1 px-2 border border-orange-600 hover:border-transparent rounded-2xl mx-2">
-              <Link className="px-4" to="/?cat=art">
+              <Link className="px-4" to="/?cat=vehicles">
                 Vehicles
               </Link>
             </button>

@@ -84,7 +84,7 @@ const Home = () => {
       {posts.map(post=>(
         <div className='border shadow-2xl rounded-lg hover:scale-105 duration-300' key={post.id}>
           {/* <div className=' justify-center items-center py-4 col-span-1'> */}
-          <img className='w-full h-[250px] object-cover rounded-t-lg' src={`../upload/${post.img}`} alt="" />
+          <img className='w-full h-[250px] object-contain rounded-t-lg' src={`../upload/${post.img}`} alt="" />
           {/* </div> */}
           
           <div className='px-2 py-2'>

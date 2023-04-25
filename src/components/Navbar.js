@@ -12,6 +12,10 @@ import { BsFillCartFill, BsFillSaveFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdFavorite, MdHelp } from "react-icons/md";
 import { FaWallet, FaUserFriends } from "react-icons/fa";
+import Avatar from '../img/avatar.png'
+
+
+
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -89,6 +93,11 @@ const Navbar = () => {
 
         <nav>
           <ul className="flex flex-col p-4 text-gray-800">
+
+            <li className="flex justify-center mb-5">
+            <img className="h-[150px]" src={Avatar} alt="" />
+            </li>
+
             <li className="text-xl py-4 flex">
               <TbTruckDelivery size={25} className="mr-4" /> <span className="px-4">{currentUser?.username}</span>{" "}
             </li>

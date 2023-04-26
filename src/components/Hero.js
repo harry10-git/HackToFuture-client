@@ -11,28 +11,26 @@ const Hero = () => {
             <span className="text-orange-600"> Discover</span> Manipal's
           </h1>
           <h1 className="px-4 text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white">
-            Unbeatable 
-            <span className="text-orange-600 ml-7"> 
-            <TypeAnimation
-      sequence={[
-        'Deals', // Types 'One'
-        2000, // Waits 1s
-        'Steals', // Deletes 'One' and types 'Two'
-        2000, // Waits 2s
-        'Discounts',
-        2000,
-        
-        // () => {
-        //   console.log('Sequence completed'); // Place optional callbacks anywhere in the array
-        // }
-      ]}
-      wrapper="span"
-      cursor={true}
-      repeat={Infinity}
-      style={{ display: 'inline-block' }}
-    />
-            
-            
+            Unbeatable
+            <span className="text-orange-600 ml-7">
+              <TypeAnimation
+                sequence={[
+                  "Deals", // Types 'One'
+                  2000, // Waits 1s
+                  "Steals", // Deletes 'One' and types 'Two'
+                  2000, // Waits 2s
+                  "Discounts",
+                  2000,
+
+                  // () => {
+                  //   console.log('Sequence completed'); // Place optional callbacks anywhere in the array
+                  // }
+                ]}
+                wrapper="span"
+                cursor={true}
+                repeat={Infinity}
+                style={{ display: "inline-block" }}
+              />
             </span>
           </h1>
         </div>

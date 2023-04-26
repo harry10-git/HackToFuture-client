@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/authContext";
+import "@lottiefiles/lottie-player";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -41,13 +42,24 @@ const Register = () => {
         Manipal
       </h1>
       <h1 className="text-9xl px-2">
-      <span className="font-bold text-orange-600 opacity-70">Mercantile</span>
+      <span className="font-bold text-orange-600">Mercantile</span>
       </h1>
+
+      <div className="ml-[450px]">
+          {/* insert lotti here */}
+          <lottie-player
+            autoplay
+            loop
+            mode="normal"
+            src="https://assets9.lottiefiles.com/packages/lf20_tpa51dr0.json"
+            style={{ width: 30 + "rem" }}
+          ></lottie-player>
+        </div>
       </div>
 
       
        {/* Login Form */}
-      <div className="flex flex-col items-center justify-center bg-orange-600 opacity-60 p-5 rounded-lg text-center">
+      <div className="flex flex-col items-center justify-center bg-orange-600 p-5 rounded-lg text-center">
         <h1 className="text-5xl pb-8 text-white text-bold">Register</h1>
 
         <form>
@@ -63,7 +75,7 @@ const Register = () => {
             required
             className="text-center bg-gray-200 rounded-full flex items-center py-1 w-[200px] sm:w-[400px] lg:w-[500] mb-5"
             type="email"
-            placeholder="email"
+            placeholder="mobile"
             name="email"
             onChange={handleChange}
           />

@@ -80,7 +80,7 @@ const Single = () => {
                   <p className="m-2">
                     <span className="text-lg text-bold">Contact:</span>{" "}
                     <span className="text-bold text-orange-600">
-                      {post.mobile}
+                      {post.email}
                     </span>
                   </p>
                 </div>
